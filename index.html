@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%234F8EF7%22/><stop offset=%22100%25%22 stop-color=%22%238B5CF6%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23060810%22/><text x=%2250%22 y=%2268%22 font-family=%22Arial,sans-serif%22 font-size=%2255%22 font-weight=%22900%22 fill=%22url(%23g)%22 text-anchor=%22middle%22>Y</text></svg>"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yaariv — Build What's Next</title>
     <link
@@ -636,18 +640,77 @@
           transform: none;
         }
       }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+      }
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--bg2);
+          border-bottom: 1px solid var(--border);
+          flex-direction: column;
+          padding: 1.5rem 6%;
+          gap: 1.25rem;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+      }
     </style>
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SHBD8V1XQ9"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SHBD8V1XQ9");
+  </script>
   <body>
     <!-- NAV -->
     <nav>
       <div class="logo">Yaariv</div>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#services">Services</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#tech">Tech</a></li>
         <li><a href="#cta">Contact</a></li>
       </ul>
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
       <button
         class="nav-cta"
         onclick="
@@ -967,7 +1030,7 @@
         <li><a href="#tech">Tech</a></li>
         <li><a href="#cta">Contact</a></li>
       </ul>
-      <div class="footer-copy">© 2025 Yaariv. All rights reserved.</div>
+      <div class="footer-copy">© 2026 Yaariv. All rights reserved.</div>
     </footer>
 
     <script>
